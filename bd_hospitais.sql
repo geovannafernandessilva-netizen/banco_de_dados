@@ -1,0 +1,78 @@
+CREATE DATABASE hospital;
+USE hospital;
+
+CREATE TABLE pacientes(
+id_pac VARCHAR(8) NOT NULL PRIMARY KEY,
+nome_pac VARCHAR(100) NOT NULL, 
+cpf_pac VARCHAR(11) NOT NULL,
+endereco_pac VARCHAR(100) NOT NULL,
+idade_pac INT NOT NULL,
+dataNasc_pac DATE NOT NULL,
+contato_pac VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE MEDICOS(
+id_med VARCHAR(8) NOT NULL PRIMARY KEY,
+nome_med VARCHAR(100) NOT NULL,
+cpf_med VARCHAR(11) NOT NULL,
+especializacao_med VARCHAR(50),
+id_pac_fk VARCHAR(8),
+CONSTRAINT medico_pacientes_fk FOREIGN KEY (id_pac_fk)
+REFERENCES pacientes (id_pac)
+);
+
+CREATE TABLE enfermeiros(
+id_enferm VARCHAR(8) NOT NULL PRIMARY KEY,
+nome_enferm VARCHAR(100) NOT NULL,
+cpf_enferme VARCHAR(11) NOT NULL,
+cpf_pac_fk VARCHAR(11),
+CONSTRAINT enferme_pac_fk FOREIGN KEY (cpf_pac_fk)
+REFERENCES pacientes (id_pac)
+);
+
+CREATE TABLE FARMACEUTICOS(
+ID_FARM VARCHAR(8) NOT NULL PRIMARY KEY,
+NOME_FARM VARCHAR(100) NOT NULL, 
+CPF_FARM VARCHAR(11) NOT NULL,
+CPF_ENFERM VARCHAR(11) NOT NULL,
+NOME_REMEDIO VARCHAR(100) NOT NULL,
+);
+
+CREATE TABLE REMEDIO(
+ID_REMEDIO VARCHAR(8) NOT NULL PRIMARY KEY,
+NOME_REMEDIO VARCHAR(100) NOT NULL,
+QNTD_REMEDIO DECIMAL(4.2) NOT NULL,
+DTV_REMEDIO DATE NOT NULL,
+HORARIO_REMEDIO TIME NOT NULL,
+
+CREATE TABLE enfermeiros(
+id_enferm VARCHAR(8) NOT NULL PRIMARY KEY,
+nome_enferm VARCHAR(100) NOT NULL,
+cpf_enferme VARCHAR(11) NOT NULL,
+cpf_pac_fk VARCHAR(11),
+CONSTRAINT enferme_pac_fk FOREIGN KEY (cpf_pac_fk)
+id_pac_fk VARCHAR (10)
+REFERENCE pacientes (id_pac_fk)
+);
+
+CREATE TABLE FARMACEUTICOS(
+id_farm VARCHAR(8) NOT NULL PRIMARY KEY,
+nome_farm VARCHAR(100) NOT NULL, 
+cpf_farm VARCHAR(11) NOT NULL,
+cpf_enferm VARCHAR(11) NOT NULL,
+nome_remedio VARCHAR(100) NOT NULL,
+cpf_farm_fk VARCHAR (100) NOT NULL,
+CONSTRAINT remedio_paciente_fk FOREIGN KEY (cpf_farm_fk) 
+REFERENCES pacientes(id_pac)
+);
+id_remedio VARCHAR(8) NOT NULL PRIMARY KEY,
+nome_remedio VARCHAR(100) NOT NULL, 
+qntd_renedio DECIMAL(4.2) NOT NULL,
+dtv_remedio  DATE NOT NULL,
+horario_remedio TIME NOT NULL,
+cpf_pac__fk VARCHAR(11) NOT NULL,
+CONSTRAINT remedio_paciente_fk FOREIGN KEY (cpf_pac_fk
+REFERENCES pacientes(id_pac)
+);
+ 
+ INSERT INTO pacientes (id_pac, nome_pac, cpf_
